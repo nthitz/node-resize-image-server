@@ -21,6 +21,9 @@ var app = express();
 /**
  * Express routes.
  */
+app.get('/test', function(err, res) {
+	res.send('ok');
+});
 app.get('/', function(req, res){
 	var u = req.query.u // URL
 		, w = req.query.w // width
@@ -32,10 +35,10 @@ app.get('/', function(req, res){
 		, dest: img_path + filename
 	}
 
-	getImg.loadImg(options, function(err,image) {
+	getImg.loadImg(options, function(err,image) { // get or load(url) the image
 		if (err) res.send(500);
 		else {
-			transfImg.resize(image,w,h,function(err,image) {
+			transfImg.resize(image,w,h,function(err,image) { // resize
 				if (err) res.send(500);
 				else {
 					res.writeHead(200, {"Content-Type": "image/png"});
@@ -47,7 +50,9 @@ app.get('/', function(req, res){
 
 });
 
-
+/**
+ * Start server.
+ */
 app.listen(3000, function() {
 	console.log("Express server listening on port %d in %s mode", app.settings.port || 3000, app.settings.env);
 });
