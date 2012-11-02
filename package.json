@@ -9,7 +9,8 @@
   ],
   "author": "Philmod <philippe.modard@gmail.com>",
   "engines": {
-    "node": ">= v0.8.0"
+    "node": ">= v0.8.x",
+    "imagemagick": "0.1.3"
   },
   "dependencies": {
     "express": "3.x"
