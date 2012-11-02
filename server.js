@@ -35,10 +35,6 @@ app.get('/', function(req, res){
 	getImg.loadImg(options, function(err,image) {
 		if (err) res.send(500);
 		else {
-			fs.readFile(image, 'binary', function(err,data) {
-				res.writeHead(200, {"Content-Type": "image/png"});
-	  		res.end(data, "binary");
-	  	});
 			/*transfImg.resize(image,w,h,function(err,image) {
 				if (err) res.send(500);
 				else {
