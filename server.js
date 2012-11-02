@@ -35,14 +35,13 @@ app.get('/', function(req, res){
 	getImg.loadImg(options, function(err,image) {
 		if (err) res.send(500);
 		else {
-			/*transfImg.resize(image,w,h,function(err,image) {
+			transfImg.resize(image,w,h,function(err,image) {
 				if (err) res.send(500);
 				else {
-					console.log('image = ' + image.length);
 					res.writeHead(200, {"Content-Type": "image/png"});
       		res.end(image, "binary");
 				}
-			});*/
+			});
 		}
 	});
 
