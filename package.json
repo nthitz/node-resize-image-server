@@ -1,0 +1,22 @@
+{
+  "name": "node-resize-image-server",
+  "version": "0.0.1",
+  "description": "Web server with NodeJS thats only function is to resize images from the web",
+  "keywords": [
+    "nodejs",
+    "image",
+    "resize"
+  ],
+  "author": "Philmod <philippe.modard@gmail.com>",
+  "engines": {
+    "node": ">= v0.8.0"
+  },
+  "dependencies": {
+    "express": "3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Philmod/node-resize-image-server.git"
+  },
+  "main": "server"
+}
