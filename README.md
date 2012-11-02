@@ -13,7 +13,6 @@ down to 100.
 Requires imagemagick CLI tools to be installed. 
 
 ## Use
-## Example
 ```js
 node server.js
 ```
