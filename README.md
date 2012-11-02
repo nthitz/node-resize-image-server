@@ -12,6 +12,12 @@ down to 100.
 ## Require
 Requires imagemagick CLI tools to be installed. 
 
+## Use
+## Example
+```js
+node server.js
+```
+
 ## Example
 ```js
 http://localhost:3000/?w=800&h=600&u=http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg

@@ -11,6 +11,9 @@ var express = require('express')
  * Options.
  */
 var img_path = __dirname + '\\img\\';
+if (!fs.existsSync(img_path)) {
+	fs.mkdirSync(img_path);
+}
 
 /**
  * Express server.
@@ -21,9 +24,6 @@ var app = express();
 /**
  * Express routes.
  */
-app.get('/test', function(err, res) {
-	res.send('ok');
-});
 app.get('/', function(req, res){
 	var u = req.query.u // URL
 		, w = req.query.w // width
