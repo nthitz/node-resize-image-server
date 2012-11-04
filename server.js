@@ -2,10 +2,8 @@
  * Module dependencies.
  */
 var express = require('express')
-	, getImg  = require('./lib/getImg.js')
-	, transfImg  = require('./lib/transfImg.js')
 	, fs = require('fs')
-	, Image = require('./lib/image.js')
+	, Img = require('./lib/image.js')
 	;
 
 /**
@@ -31,7 +29,7 @@ app.get('/', function(req, res){
 		, h = req.query.h // height
 		;
 
-	var img = new Image(u,img_path).load(function(err,im) {
+	var img = new Img(u,img_path).load(function(err,im) {
 		if (err) {
 			console.log('err 1 : ' + err);
 			res.send(500, { error: err });
