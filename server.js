@@ -5,12 +5,13 @@ var express = require('express')
 	, getImg  = require('./lib/getImg.js')
 	, transfImg  = require('./lib/transfImg.js')
 	, fs = require('fs')
+	, Image = require('./lib/image.js')
 	;
 
 /**
  * Options.
  */
-var img_path = __dirname + '\\img\\';
+var img_path = __dirname + '/img/';
 if (!fs.existsSync(img_path)) {
 	fs.mkdirSync(img_path);
 }
@@ -28,26 +29,26 @@ app.get('/', function(req, res){
 	var u = req.query.u // URL
 		, w = req.query.w // width
 		, h = req.query.h // height
-		, filename = u.split('/').slice(-1).toString()
 		;
-	var options = {
-			url: u
-		, dest: img_path + filename
-	}
 
-	getImg.loadImg(options, function(err,image) { // get or load(url) the image
-		if (err) res.send(500);
+	var img = new Image(u,img_path).load(function(err,im) {
+		if (err) {
+			console.log('err 1 : ' + err);
+			res.send(500, { error: err });
+		}
 		else {
-			transfImg.resize(image,w,h,function(err,image) { // resize
-				if (err) res.send(500);
+			im.resize(w,h,function(err,im) {
+				if (err) {
+					console.log('err 2 : ' + err);
+					res.send(500, { error: err });
+				}
 				else {
 					res.writeHead(200, {"Content-Type": "image/png"});
-      		res.end(image, "binary");
+      		res.end(im.resized, "binary");
 				}
-			});
+			})
 		}
 	});
-
 });
 
 /**

@@ -18,9 +18,9 @@ node server.js
 ```
 
 ## Example
-```js
-http://localhost:3000/?w=800&h=600&u=http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg
-```
+[http://localhost:3000/?w=800&h=600&u=http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg][]
+
+[http://localhost:3000/?w=800&h=600&u=http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg]: http://localhost:3000/?w=800&h=600&u=http://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg
 
 ## ToDo
   - Try to find a faster/lighter module to process the pictures
