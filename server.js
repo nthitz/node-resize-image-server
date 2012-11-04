@@ -30,18 +30,12 @@ app.get('/', function(req, res){
 		;
 
 	var img = new Img(u,img_path).load(function(err,im) {
-		if (err) {
-			console.log('err 1 : ' + err);
-			res.send(500, { error: err });
-		}
+		if (err) res.send(500, { error: err });
 		else {
 			im.resize(w,h,function(err,im) {
-				if (err) {
-					console.log('err 2 : ' + err);
-					res.send(500, { error: err });
-				}
+				if (err) res.send(500, { error: err });
 				else {
-					res.writeHead(200, {"Content-Type": "image/png"});
+					res.writeHead(200, {"Content-Type": "image/" + im.extension});
       		res.end(im.resized, "binary");
 				}
 			})
