@@ -28,6 +28,7 @@ app.get('/', function(req, res){
 		, w = req.query.w // width
 		, h = req.query.h // height
 		;
+	if (!u || !w || !h) res.send(400, {error: 'Specify an url \'u\', width \'w\' and height \'h\''});
 
 	var img = new Img(u,img_path).load(function(err,im) {
 		if (err) res.send(500, { error: err });
