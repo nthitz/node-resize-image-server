@@ -30,9 +30,9 @@ app.get('/', function(req, res){
 		;
 	if (!u || !w || !h) {
 		res.send(400, {error: 'Specify an url \'u\', width \'w\' and height \'h\''});
-		return;
-		
+		return
 	}
+    res.header('Access-Control-Allow-Origin', '*');
 	var img = new Img(u,img_path).load(function(err,im) {
 		if (err) res.send(500, { error: err });
 		else {
@@ -40,7 +40,7 @@ app.get('/', function(req, res){
 				if (err) res.send(500, { error: err });
 				else {
 					res.writeHead(200, {"Content-Type": "image/" + im.extension});
-      		res.end(im.resized, "binary");
+		      		res.end(im.resized, "binary");
 				}
 			})
 		}
